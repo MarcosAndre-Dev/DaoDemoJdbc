@@ -4,21 +4,21 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
-public class Seller implements Serializable{
+public class Seller implements Serializable {
 	private static final long serialVersionUID = 1L;
+
 	private int Id;
 	private String Name;
 	private String Email;
 	private Date BirthDate;
 	private Double BaseSalary;
-	
+
 	private Department department;
-	
+
 	public Seller() {
 	}
-	
+
 	public Seller(int id, String name, String email, Date birthDate, Double baseSalary, Department department) {
-		super();
 		Id = id;
 		Name = name;
 		Email = email;
@@ -27,63 +27,69 @@ public class Seller implements Serializable{
 		this.department = department;
 	}
 
-
-
 	public int getId() {
 		return Id;
 	}
 	public void setId(int id) {
 		Id = id;
 	}
+
 	public String getName() {
 		return Name;
 	}
 	public void setName(String name) {
 		Name = name;
 	}
+
 	public String getEmail() {
 		return Email;
 	}
 	public void setEmail(String email) {
 		Email = email;
 	}
-	public Date getDate() {
+
+	public Date getBirthDate() {
 		return BirthDate;
 	}
-	public void setDate(Date date) {
-		BirthDate = date;
+	public void setBirthDate(Date birthDate) {
+		BirthDate = birthDate;
 	}
+
 	public Double getBaseSalary() {
 		return BaseSalary;
 	}
 	public void setBaseSalary(Double baseSalary) {
 		BaseSalary = baseSalary;
 	}
-	public static long getSerialversionuid() {
-		return serialVersionUID;
+
+	public Department getDepartment() {
+		return department;
 	}
+
+	public void setDepartment(Department department) {
+		this.department = department;
+	}
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(BaseSalary, BirthDate, Email, Id, Name);
+		return Objects.hash(Id);
 	}
+
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
+		if (this == obj) return true;
+		if (obj == null || getClass() != obj.getClass()) return false;
 		Seller other = (Seller) obj;
-		return Objects.equals(BaseSalary, other.BaseSalary) && Objects.equals(BirthDate, other.BirthDate)
-				&& Objects.equals(Email, other.Email) && Id == other.Id && Objects.equals(Name, other.Name);
+		return Id == other.Id;
 	}
+
 	@Override
 	public String toString() {
-		return "Setter [Id=" + Id + ", Name=" + Name + ", Email=" + Email + ", Date=" + BirthDate + ", BaseSalary="
-				+ BaseSalary + "]";
+		return "Seller [Id=" + Id 
+				+ ", Name=" + Name 
+				+ ", Email=" + Email 
+				+ ", BirthDate=" + BirthDate 
+				+ ", BaseSalary=" + BaseSalary 
+				+ ", Department=" + department + "]";
 	}
-	
-	
-	
 }
