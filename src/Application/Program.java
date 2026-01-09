@@ -3,15 +3,20 @@ package Application;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Scanner;
+
 import ModelDaoImpl.SellerDaoJDBC;
 import ModelDao.DaoFactory;
 import ModelDao.SellerDao;
 import ModelEntities.Department;
 import ModelEntities.Seller;
+import db.DbException;
 
 public class Program {
 
 	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
 
 		SellerDao sellerDao = DaoFactory.createSellerDao();
 		
@@ -43,6 +48,19 @@ public class Program {
 		sellerDao.update(seller);
 		System.out.println("Update completed!");
 		
+		System.out.println("\n=== TEST 6: seller delete =====");
+		System.out.print("Enter id for delete test: ");
+		int id = sc.nextInt();
+
+		try {
+		    sellerDao.deleteById(id);
+		    System.out.println("Delete completed!");
+		} catch (DbException e) {
+		    System.out.println(e.getMessage());
+		}
+
+		
+		sc.close();
 	}
 
 }
