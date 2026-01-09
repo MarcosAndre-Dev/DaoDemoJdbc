@@ -1,6 +1,8 @@
 package ModelEntities;
 
 import java.util.Objects;
+
+
 import java.io.Serializable;
 
 public class Department implements Serializable{
@@ -53,6 +55,7 @@ public class Department implements Serializable{
 	public String toString() {
 		return "Department [Id=" + Id + ", Name=" + Name + "]";
 	}
+
 	
 	
 }
